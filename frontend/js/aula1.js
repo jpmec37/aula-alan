@@ -8,12 +8,15 @@ const button4 = document.getElementById("enviar4")
 const resultado4 = document.getElementById("resultado4")
 const button5 = document.getElementById("enviar5")
 const resultado5 = document.getElementById("resultado5")
+const button15 = document.getElementById("enviar15")
+const resultado15 = document.getElementById("resultado15")
 let precohaha;
 let cupondobom;
 let senha;
 let valorcompra;
 let notaaluno;
 let temperatura;
+let pontos
 button1.addEventListener('click', () =>{
     precohaha = document.getElementById("valor1").value
     cupondobom = document.getElementById("cupom").value
@@ -24,6 +27,16 @@ button1.addEventListener('click', () =>{
     const formatado = cupondobom.toLowerCase()
     const verificar = calcularTotal(precohaha, formatado)
 resultado1.textContent = verificar
+})
+button15.addEventListener('click', () =>{
+pontos = document.getElementById("valor15").value
+
+if(!pontos){
+    resultado15.textContent = "Insira os dados"
+    return
+}
+const verificar = subirNivel(pontos)
+resultado15.textContent = verificar
 })
 button2.addEventListener('click', () =>{
     valorcompra = document.getElementById("valor2").value
@@ -109,6 +122,13 @@ function verificarTemp(temp) {
   } else if (temp < 50) {
     return "Temperatura Normal";
   }
+}
+function subirNivel(pontos){
+ if(pontos >=100){
+    return("Nível Subiu para 2")
+ }else{
+    return("Nível permanece no 1")
+ }
 }
 
 
